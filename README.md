@@ -1,10 +1,10 @@
-# KendoReact Data Grid With MarkLogic
+# KendoReact Data Grid With Express Server
 
-This is a sample application that uses the KendoReact Data Grid with an express server and MarkLogic. The Grid has server data operations and CRUD operations.
+This is a sample application that uses the KendoReact Data Grid with an Express server. The Grid has server data operations and CRUD operations.
 
 ## Running the Application
 
-Execute the following steps to run the application:
+Please execute the following steps to run the application:
 
 1. Go to the `server` folder.
 
