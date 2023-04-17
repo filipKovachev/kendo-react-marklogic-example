@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 
 const data = require('./products')
+const mapData = require('../setup/data/countries-users.json')
 
 const { process } = require('@progress/kendo-data-query');
 
@@ -32,6 +33,10 @@ app.get("/products", (req, res) => {
             filter: dataState.filter
         }
     ));
+});
+
+app.get("/map", (req, res) => {
+    res.send(mapData)
 });
 
 app.put("/update", (req, res) => {

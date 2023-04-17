@@ -1,7 +1,5 @@
 import '@progress/kendo-theme-default/dist/all.css'
-
 import { useState, useEffect } from "react";
-
 import { Grid, GridColumn, GridToolbar } from '@progress/kendo-react-grid';
 import { mapTree } from "@progress/kendo-react-treelist";
 import { clone } from '@progress/kendo-react-common';
@@ -10,14 +8,44 @@ import MyCommandCell from './components/CommandCell';
 import Axios from "axios";
 import DataContext from './context/data-context';
 import DropDownCell from './components/DropDownCell';
+import { Map, MapLayers, MapShapeLayer } from '@progress/kendo-react-map';
 
 function App() {
   const [data, setData] = useState([]);
   const [itemBeforeEdit, setItemBeforeEdit] = useState({})
   const [dataState, setDataState] = useState({ take: 8, skip: 0, group: [{field: 'ProductName'}] })
   const [total, setTotal] = useState(0);
+  const [mapData, setMapData] = useState({})
+
+  const shapeStyle = {
+    fill: {
+      color: 'green'
+    }
+  };
+
+  const center = [40, 0];
+
+ const MapContainer = () => {
+  return <div> 
+     <Map center={center}>
+      <MapLayers>
+        <MapShapeLayer data={mapData} style={shapeStyle} />
+      </MapLayers>
+    </Map>
+  </div>
+ }
+
+ const getChartData = () => {
+  Axios.get("http://localhost:4000/map", {
+
+    }).then((response) => {
+
+      setMapData(response.data.features)
+    });
+};
 
   useEffect(() => {
+    getChartData()
     Axios.get("http://localhost:4000/products", {
       params: {
         dataState: dataState
@@ -168,6 +196,9 @@ function App() {
           <GridColumn cell={MyCommandCell}  filterable={false} />
         </Grid>
          </DataContext.Provider>
+         <div className="map-container">
+         <MapContainer/>
+         </div>
     </div>
   );
 }
