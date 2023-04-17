@@ -1,41 +1,61 @@
-# KendoReact Data Grid With Express Server
+# KendoReact Data Grid With MarkLogic
 
-This is a sample application that uses the KendoReact Data Grid with an Express server. The Grid has server data operations and CRUD operations.
+A sample application that showcases how to Integrate MarkLogic and the KendoReact Grid.
 
 ## Running the Application
 
 Please execute the following steps to run the application:
 
-1. Go to the `server` folder.
+1. Navigate inside the `setup` folder.
 
 ````
-cd server
+cd setup
 ````
 
-2. Install the packages for the server.
+2. Install the packages for the setting up MarkLogic.
 
 ````
 npm install
 ````
 
-3. Start the server.
+3. If needed, edit `setup/config.js` for your MarkLogic server by changing the username and pasword accordingly.
+
+4. Run MarkLogic as a service on your machine and run"
+
+````
+node setup.js
+````
+
+5. Navigate to the `server` folder.
+
+````
+cd ../server
+````
+6. Install the packages for the server.
+
+````
+npm install
+````
+
+7. Start the server.
 
 ````
 node index.js
 ````
-4. Open a new terminal at the main folder and to the client folder.
+
+8. Open a new terminal at the project root and navigate to the ui folder.
 
 ````
-cd client
+cd ui
 ````
 
-5. Install the packages
+9. Install the packages for the client application.
 
 ````
 npm install
 ````
 
-6. Run the client application.
+10. Run the client application.
 
 ````
 npm start
