@@ -18,9 +18,11 @@ cd setup
 npm install
 ````
 
-3. If needed, edit `setup/config.js` for your MarkLogic server by changing the username and pasword accordingly.
+3. If needed, edit `setup/config.js` for your MarkLogic server by changing the username and pasword accordingly. More information on how to install MarkLogic can be found here:
 
-4. Run MarkLogic as a service on your machine and run"
+https://docs.marklogic.com/11.0/guide/installation-guide/en/procedures/installing-marklogic.html
+
+4. Run MarkLogic as a service on your machine and run
 
 ````
 node setup.js
